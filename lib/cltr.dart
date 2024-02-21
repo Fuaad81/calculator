@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_typing_uninitialized_variables, unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var t1 = TextEditingController();
   var t2 = TextEditingController();
+
+  var fn = 0;
+  var sn = 0;
+  var operator;
+  var c;
+  
   
   @override
   Widget build(BuildContext context) {
@@ -31,57 +37,11 @@ class _HomeState extends State<Home> {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: SizedBox(
-                    width: 350,
-                    height: 40,
-                    child: TextFormField(
-                      controller: t1,
-                      decoration: InputDecoration(
-                          labelText: 'enter a number',
-                          enabledBorder: OutlineInputBorder()),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: SizedBox(
-                    width: 50,
-                    height: 40,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder()),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: SizedBox(
-                    width: 350,
-                    height: 40,
-                    child: TextFormField(
-                      controller: t2,
-                      decoration: InputDecoration(
-                          labelText: 'enter a number',
-                          enabledBorder: OutlineInputBorder()),
-                    ),
-                  ),
-                ),
-              ],
+            Container(
+              width: 200,
+              height: 40,
+              decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+              
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -95,18 +55,24 @@ class _HomeState extends State<Home> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
-                  child: Text('Result'),
+                  child:Text( c != null ? c.toString() : '',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 200),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      backgroundColor: Colors.grey,
+                      foregroundColor: Colors.white,
+                      
+                      onPressed: () {
+                        fn = 1;
+                        
+                      },
                       child: Text(
                         '1',
                         style: TextStyle(fontSize: 20),
@@ -116,21 +82,29 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 2;
+                      },
                       child: Text('2', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 3;
+                      },
                       child: Text('3', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        operator = '+';
+                        sn = fn;
+                        fn = 0;
+                      },
                       child: Text('+', style: TextStyle(fontSize: 20)),
                     ),
                   ),
@@ -144,28 +118,38 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 4;
+                      },
                       child: Text('4', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 5;
+                      },
                       child: Text('5', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 6;
+                      },
                       child: Text('6', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        operator = '-';
+                        sn = fn;
+                        fn = 0;
+                      },
                       child: Text('-', style: TextStyle(fontSize: 20)),
                     ),
                   ),
@@ -179,29 +163,39 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 7;
+                      },
                       child: Text('7', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 8;
+                      },
                       child: Text('8', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 9;
+                      },
                       child: Text('9', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Text('*', style: TextStyle(fontSize: 20)),
+                      onPressed: () {
+                        operator = 'x';
+                        sn = fn;
+                        fn = 0;
+                      },
+                      child: Text('x', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                 ],
@@ -214,28 +208,66 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        fn = 0;
+                      },
                       child: Text('0', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Text('.', style: TextStyle(fontSize: 20)),
+                      onPressed: () {
+                        operator = 'C';
+                        sn = fn;
+                        fn = 0;
+                      },
+                      child: Text('C', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if(operator == '+'){
+                         setState(() {
+                           c = fn + sn;
+                           
+                         });
+                         
+                        }
+                        else if(operator == '-'){
+                          setState(() {
+                            c = fn - sn;
+                          });
+                        }
+                        else if(operator == 'x'){
+                          setState(() {
+                            c = fn * sn;
+                          });
+                        }
+                        else if(operator == 'C'){
+                          setState(() {
+                            c = 0;
+                          });
+                        }
+                        else if(operator == '/'){
+                          setState(() {
+                            c = fn / sn;
+                          });
+                        }
+                      },
                       child: Text('=', style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        operator = '/';
+                        sn = fn;
+                        fn = 0;
+                      },
                       child: Text('/', style: TextStyle(fontSize: 20)),
                     ),
                   ),
